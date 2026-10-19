@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinkedIn Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="header">
+        <a href="login.html" class="logo">Linked<span>in</span></a>
+    </header>
+
+    <main class="login-container">
+
+        <h1>Sign in</h1>
+        <p class="subtitle">Stay updated on your professional world.</p>
+
+        <form id="loginForm">
+
+            <label for="email">Email or phone</label>
+            <input
+                type="text"
+                id="email"
+                placeholder="Enter your email or phone"
+                required
+            >
+
+            <label for="password">Password</label>
+            <input
+                type="password"
+                id="password"
+                placeholder="Enter your password"
+                required
+            >
+
+            <a href="#" class="forgot">Forgot password?</a>
+
+            <button type="submit" class="main-button">Sign in</button>
+
+        </form>
+
+        <p id="message" class="message"></p>
+
+        <div class="divider">
+            <span>or</span>
+        </div>
+
+        <p class="join-text">
+            New to LinkedIn?
+            <a href="signup.html">Join now</a>
+        </p>
+
+    </main>
+
+    <footer>
+        <p>LinkedIn Demo © 2026</p>
+    </footer>
+
+    <script>
+        const loginForm = document.getElementById("loginForm");
+
+        loginForm.addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const email = document.getElementById("email").value.trim();
+            const password = document.getElementById("password").value;
+            const message = document.getElementById("message");
+
+            const savedUser = JSON.parse(
+                localStorage.getItem("linkedinDemoUser") || "null"
+            );
+
+            if (
+                savedUser &&
+                email === savedUser.email &&
+                password === savedUser.password
+            ) {
+                localStorage.setItem("linkedinDemoLoggedIn", "true");
+                window.location.href = "dashboard.html";
+            } else {
+                message.textContent =
+                    "Account not found or password is incorrect. Please sign up first.";
+            }
+        });
+    </script>
+
+</body>
+</html>

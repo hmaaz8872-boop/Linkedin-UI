@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join LinkedIn</title>
+    <link rel="stylesheet" href="signup.css">
+</head>
+<body>
+
+    <header class="header">
+        <a href="login.html" class="logo">Linked<span>in</span></a>
+    </header>
+
+    <main class="signup-container">
+
+        <h1>Make the most of your professional life</h1>
+        <p class="subtitle">Create an account to get started.</p>
+
+        <form id="signupForm">
+
+            <label for="firstName">First name</label>
+            <input type="text" id="firstName" required>
+
+            <label for="lastName">Last name</label>
+            <input type="text" id="lastName" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" required>
+
+            <label for="password">Password</label>
+            <input
+                type="password"
+                id="password"
+                minlength="6"
+                placeholder="At least 6 characters"
+                required
+            >
+
+            <p class="terms">
+                By clicking Agree & Join, you agree to this demo's terms.
+            </p>
+
+            <button type="submit" class="main-button">Agree & Join</button>
+
+        </form>
+
+        <p id="message" class="message"></p>
+
+        <p class="signin-text">
+            Already have an account?
+            <a href="login.html">Sign in</a>
+        </p>
+
+    </main>
+
+    <footer>
+        <p>LinkedIn Demo © 2026</p>
+    </footer>
+
+    <script>
+        const signupForm = document.getElementById("signupForm");
+
+        signupForm.addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const firstName = document.getElementById("firstName").value.trim();
+            const lastName = document.getElementById("lastName").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const password = document.getElementById("password").value;
+            const message = document.getElementById("message");
+
+            const user = {
+                firstName: firstName,
+                lastName: lastName,
+                email: email,
+                password: password
+            };
+
+            localStorage.setItem("linkedinDemoUser", JSON.stringify(user));
+            localStorage.setItem("linkedinDemoLoggedIn", "true");
+
+            message.style.color = "green";
+            message.textContent = "Account created! Opening dashboard...";
+
+            setTimeout(function() {
+                window.location.href = "dashboard.html";
+            }, 700);
+        });
+    </script>
+
+</body>
+</html>

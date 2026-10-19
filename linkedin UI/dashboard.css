@@ -1,0 +1,292 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f3f2ef;
+    color: #191919;
+}
+
+.navbar {
+    background-color: white;
+    min-height: 65px;
+    padding: 10px 5%;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.logo {
+    background-color: #0a66c2;
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+    padding: 3px 8px;
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+.search-box {
+    width: 220px;
+    padding: 12px;
+    background-color: #edf3f8;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    margin-left: auto;
+}
+
+.nav-links a {
+    color: #555;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.nav-links a:hover {
+    color: #0a66c2;
+}
+
+.signout {
+    background-color: white;
+    border: 1px solid #0a66c2;
+    color: #0a66c2;
+    border-radius: 20px;
+    padding: 9px 16px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.signout:hover {
+    background-color: #e8f3ff;
+}
+
+.dashboard {
+    max-width: 1200px;
+    margin: 25px auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 240px minmax(0, 1fr) 260px;
+    gap: 20px;
+    align-items: start;
+}
+
+.sidebar,
+.create-post,
+.post {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.cover {
+    height: 75px;
+    background-color: #0a66c2;
+}
+
+.profile-content {
+    padding: 20px;
+    text-align: center;
+}
+
+.avatar {
+    width: 65px;
+    height: 65px;
+    margin: -48px auto 15px;
+    border: 4px solid white;
+    border-radius: 50%;
+    background-color: #e8f3ff;
+    color: #0a66c2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 20px;
+    position: relative;
+}
+
+.profile-content h2 {
+    font-size: 18px;
+    overflow-wrap: anywhere;
+    margin-bottom: 10px;
+}
+
+.profile-content p {
+    color: #666;
+    font-size: 13px;
+    line-height: 1.5;
+    margin: 12px 0;
+}
+
+.profile-content hr {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 15px 0;
+}
+
+.profile-content strong {
+    display: block;
+    color: #0a66c2;
+    margin-top: 5px;
+}
+
+.feed {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    min-width: 0;
+}
+
+.create-post {
+    padding: 22px;
+}
+
+.create-post h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.create-post p,
+.post p {
+    color: #555;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.post {
+    padding: 22px;
+}
+
+.post h3 {
+    font-size: 17px;
+    margin-bottom: 7px;
+}
+
+.post .post-subtitle {
+    color: #777;
+    font-size: 12px;
+    margin-bottom: 15px;
+}
+
+.post-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+}
+
+.post-actions button {
+    background-color: white;
+    border: none;
+    padding: 8px 12px;
+    color: #555;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.post-actions button:hover {
+    background-color: #edf3f8;
+    border-radius: 5px;
+}
+
+.news-card {
+    padding: 20px;
+}
+
+.news-card h3 {
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.news-card ul {
+    padding-left: 18px;
+}
+
+.news-card li {
+    font-size: 13px;
+    line-height: 1.5;
+    margin-bottom: 14px;
+    color: #555;
+}
+
+@media only screen and (max-width: 1000px) {
+    .dashboard {
+        grid-template-columns: 220px minmax(0, 1fr);
+    }
+
+    .news-card {
+        display: none;
+    }
+
+    .navbar {
+        flex-wrap: wrap;
+    }
+
+    .nav-links {
+        gap: 14px;
+    }
+}
+
+@media only screen and (max-width: 650px) {
+    .navbar {
+        padding: 12px;
+        gap: 12px;
+    }
+
+    .search-box {
+        flex: 1;
+        width: auto;
+        min-width: 0;
+    }
+
+    .nav-links {
+        width: 100%;
+        margin-left: 0;
+        justify-content: space-between;
+        gap: 8px;
+        flex-wrap: wrap;
+    }
+
+    .nav-links a {
+        font-size: 12px;
+    }
+
+    .signout {
+        padding: 7px 10px;
+        font-size: 12px;
+    }
+
+    .dashboard {
+        grid-template-columns: 1fr;
+        padding: 0 12px;
+        margin: 15px auto;
+    }
+
+    .profile-card {
+        width: 100%;
+    }
+
+    .profile-content {
+        padding: 18px;
+    }
+
+    .create-post,
+    .post {
+        padding: 18px;
+    }
+}

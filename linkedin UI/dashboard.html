@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinkedIn Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+
+    <header class="navbar">
+
+        <a href="dashboard.html" class="logo">in</a>
+
+        <input type="search" class="search-box" placeholder="Search">
+
+        <nav class="nav-links">
+            <a href="dashboard.html">Home</a>
+            <a href="#network">My Network</a>
+            <a href="#jobs">Jobs</a>
+            <a href="#messages">Messaging</a>
+            <button id="signOutButton" class="signout">Sign out</button>
+        </nav>
+
+    </header>
+
+    <main class="dashboard">
+
+        <aside class="sidebar profile-card">
+            <div class="cover"></div>
+            <div class="profile-content">
+                <div class="avatar">MC</div>
+                <h2 id="userName">Welcome!</h2>
+                <p>Welcome to your professional network.</p>
+                <hr>
+                <p>Profile views <strong>24</strong></p>
+                <p>Connections <strong>120</strong></p>
+            </div>
+        </aside>
+
+        <section class="feed">
+
+            <div class="create-post">
+                <h2>Welcome to LinkedIn Demo!</h2>
+                <p>Connect with people and explore your professional world.</p>
+            </div>
+
+            <article class="post">
+                <h3>LinkedIn Demo</h3>
+                <p class="post-subtitle">A professional networking experience</p>
+                <p>
+                    Your pages are connected! You can now navigate between
+                    the login page, signup page and dashboard.
+                </p>
+                <div class="post-actions">
+                    <button type="button">Like</button>
+                    <button type="button">Comment</button>
+                    <button type="button">Share</button>
+                </div>
+            </article>
+
+            <article class="post" id="network">
+                <h3>My Network</h3>
+                <p>Discover new connections and grow your professional network.</p>
+            </article>
+
+            <article class="post" id="jobs">
+                <h3>Jobs</h3>
+                <p>Explore career opportunities and professional development.</p>
+            </article>
+
+            <article class="post" id="messages">
+                <h3>Messaging</h3>
+                <p>Your demo messaging section is ready.</p>
+            </article>
+
+        </section>
+
+        <aside class="sidebar news-card">
+            <h3>LinkedIn News</h3>
+            <ul>
+                <li>Technology continues to evolve</li>
+                <li>New skills open new opportunities</li>
+                <li>Build your professional network</li>
+                <li>Keep learning every day</li>
+            </ul>
+        </aside>
+
+    </main>
+
+    <script>
+        const isLoggedIn =
+            localStorage.getItem("linkedinDemoLoggedIn") === "true";
+
+        const savedUser = JSON.parse(
+            localStorage.getItem("linkedinDemoUser") || "null"
+        );
+
+        if (!isLoggedIn || !savedUser) {
+            window.location.replace("login.html");
+        } else {
+            document.getElementById("userName").textContent =
+                savedUser.firstName + " " + savedUser.lastName;
+        }
+
+        document.getElementById("signOutButton").addEventListener("click", function() {
+            localStorage.removeItem("linkedinDemoLoggedIn");
+            window.location.href = "login.html";
+        });
+    </script>
+
+</body>
+</html>
